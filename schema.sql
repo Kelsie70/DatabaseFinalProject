@@ -38,6 +38,8 @@ CREATE TABLE `Location` (
   `zipcode` int(11) DEFAULT NULL,
   `city` varchar(45) DEFAULT NULL,
   `state` varchar(45) DEFAULT NULL,
+  `locationname` varchar(45) NOT NULL,
   PRIMARY KEY (`idLocation`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
 
