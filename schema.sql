@@ -33,7 +33,7 @@ CREATE TABLE `Item` (
 
 CREATE TABLE `Inventory` (
   `idInventory` int(11) NOT NULL,
-  `sellerid` int(11) DEFAULT NULL,
+  `sellerid` varchar(45) DEFAULT NULL,
   `numberinstock` int(11) DEFAULT NULL,
   `itemstatus` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`idInventory`)
@@ -41,8 +41,8 @@ CREATE TABLE `Inventory` (
 
 CREATE TABLE `Purchase` (
   `idPurchase` int(11) NOT NULL,
-  `buyerid` int(11) NOT NULL,
-  `sellerid` int(11) NOT NULL,
+  `buyerid` varchar(45) NOT NULL,
+  `sellerid` varchar(45) NOT NULL,
   `itemprice` double DEFAULT NULL,
   `transactiontime` datetime DEFAULT NULL,
   `itemid` int(11) DEFAULT NULL,
