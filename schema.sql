@@ -8,20 +8,6 @@ CREATE TABLE `User` (
   UNIQUE KEY `email_UNIQUE` (`email`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
-
-CREATE TABLE `Task` (
-  `idtask` int(11) NOT NULL,
-  `datecreated` datetime DEFAULT NULL,
-  `deadline` varchar(45) DEFAULT NULL,
-  `comments` varchar(100) DEFAULT NULL,
-  `assigneduser` varchar(45) NOT NULL,
-  `supplies` varchar(100) DEFAULT NULL,
-  `locationid` varchar(45) DEFAULT NULL,
-  `category` varchar(45) DEFAULT NULL,
-  `taskname` varchar(45) NOT NULL,
-  PRIMARY KEY (`idtask`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
 CREATE TABLE `Profile` (
   `username` varchar(45) NOT NULL,
   `firstname` varchar(45) DEFAULT NULL,
@@ -31,17 +17,40 @@ CREATE TABLE `Profile` (
   `state` varchar(45) DEFAULT NULL,
   `zipcode` int(11) DEFAULT NULL,
   `email` varchar(45) NOT NULL,
+  `balance` varchar(45) NOT NULL,
   PRIMARY KEY (`username`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
-CREATE TABLE `Location` (
-  `idLocation` int(11) NOT NULL,
-  `address` varchar(45) DEFAULT NULL,
-  `zipcode` int(11) DEFAULT NULL,
-  `city` varchar(45) DEFAULT NULL,
-  `state` varchar(45) DEFAULT NULL,
-  `locationname` varchar(45) NOT NULL,
-  PRIMARY KEY (`idLocation`)
+CREATE TABLE `Item` (
+  `idItem` int(11) NOT NULL,
+  `itemname` varchar(45) NOT NULL,
+  `price` double DEFAULT NULL,
+  `description` varchar(200) DEFAULT NULL,
+  `rating` int(11) DEFAULT NULL,
+  `categoryid` int(11) DEFAULT NULL,
+  PRIMARY KEY (`idItem`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+CREATE TABLE `Inventory` (
+  `idInventory` int(11) NOT NULL,
+  `sellerid` int(11) DEFAULT NULL,
+  `numberinstock` int(11) DEFAULT NULL,
+  `itemstatus` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`idInventory`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+CREATE TABLE `Purchase` (
+  `idPurchase` int(11) NOT NULL,
+  `buyerid` int(11) NOT NULL,
+  `sellerid` int(11) NOT NULL,
+  `itemprice` double DEFAULT NULL,
+  `transactiontime` datetime DEFAULT NULL,
+  `itemid` int(11) DEFAULT NULL,
+  PRIMARY KEY (`idPurchase`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+CREATE TABLE `Category` (
+  `idCategory` int(11) NOT NULL,
+  `categoryname` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`idCategory`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
