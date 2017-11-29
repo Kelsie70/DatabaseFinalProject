@@ -10,7 +10,10 @@ libraryDependencies ++= Seq(
   "org.webjars" % "bootstrap" % "3.3.4"
 )
 
-
+val appDependencies = Seq(
+    // Add your project dependencies here,
+    "mysql" % "mysql-connector-java" % "5.1.18"
+)
 
 LessKeys.compress in Assets := true
 
