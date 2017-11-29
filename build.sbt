@@ -7,13 +7,17 @@ scalaVersion := "2.12.3"
 libraryDependencies ++= Seq(
   guice,
   "org.webjars" %% "webjars-play" % "2.6.1",
-  "org.webjars" % "bootstrap" % "3.3.4"
+  "org.webjars" % "bootstrap" % "3.3.4",
+    javaJdbc
 )
 
+libraryDependencies += "mysql" % "mysql-connector-java" % "5.1.44"
+
+/*
 val appDependencies = Seq(
-    // Add your project dependencies here,
-    "mysql" % "mysql-connector-java" % "5.1.18"
-)
+    jdbc,
+    "mysql" % "mysql-connector-java" % "5.6.38"
+)*/
 
 LessKeys.compress in Assets := true
 
