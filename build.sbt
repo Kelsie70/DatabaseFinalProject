@@ -1,19 +1,23 @@
-name := """play-java-starter-example"""
+name := "webjars-sample-play2"
 
 version := "1.0-SNAPSHOT"
 
-lazy val root = (project in file(".")).enablePlugins(PlayJava)
+scalaVersion := "2.12.3"
 
-scalaVersion := "2.12.2"
+libraryDependencies ++= Seq(
+  guice,
+  "org.webjars" %% "webjars-play" % "2.6.1",
+  "org.webjars" % "bootstrap" % "3.3.4"
+)
 
-libraryDependencies += guice
 
-// Test Database
-libraryDependencies += "com.h2database" % "h2" % "1.4.194"
 
-// Testing libraries for dealing with CompletionStage...
-libraryDependencies += "org.assertj" % "assertj-core" % "3.6.2" % Test
-libraryDependencies += "org.awaitility" % "awaitility" % "2.0.0" % Test
+LessKeys.compress in Assets := true
 
-// Make verbose tests
-testOptions in Test := Seq(Tests.Argument(TestFrameworks.JUnit, "-a", "-v"))
+pipelineStages := Seq(digest, gzip)
+
+includeFilter in (Assets, LessKeys.less) := "*.less"
+
+routesGenerator := InjectedRoutesGenerator
+
+lazy val root = (project in file(".")).enablePlugins(PlayScala)
