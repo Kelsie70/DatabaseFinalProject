@@ -1,4 +1,7 @@
 @this(webJarsUtil: org.webjars.play.WebJarsUtil)
+@(items: List[Item]) 
+
+
 
 
 
@@ -11,7 +14,10 @@
   @Html(webJarsUtil.css("bootstrap.min.css"))
 <link rel="stylesheet" media="screen" href="@routes.Assets.versioned("stylesheets/index.min.css")">
 <link rel="shortcut icon" type="image/png" href="@routes.Assets.versioned("images/favicon.png")">
+
 @Html(webJarsUtil.requireJs(routes.Assets.versioned("javascripts/index.js")))
+
+
    
   <style>
     /* Remove the navbar's default rounded borders and increase the bottom margin */ 
@@ -52,7 +58,7 @@
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
-        <li><a href="@routes.Application.getItems()">Outdoors</a></li>
+        <li><a href="#">Outdoors</a></li>
         <li><a href="#">Electronics</a></li>
         <li><a href="#">Clothes</a></li>
         <li><a href="#">Food</a></li>
@@ -66,6 +72,18 @@
     </div>
   </div>
 </nav>
+
+<div class="hi">     
+    <ul>
+		<p>@items.size()</p>
+        @for(item <- items) {
+            <li>
+                @item.itemName
+            </li>
+        }
+    </ul>
+</div>
+    
 
 <div class="container">    
   <div class="row">
