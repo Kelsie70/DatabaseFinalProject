@@ -1,6 +1,7 @@
 @this(webJarsUtil: org.webjars.play.WebJarsUtil)
 
 
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,8 +11,8 @@
   @Html(webJarsUtil.css("bootstrap.min.css"))
 <link rel="stylesheet" media="screen" href="@routes.Assets.versioned("stylesheets/index.min.css")">
 <link rel="shortcut icon" type="image/png" href="@routes.Assets.versioned("images/favicon.png")">
-
-    @Html(webJarsUtil.requireJs(routes.Assets.versioned("javascripts/index.js")))
+@Html(webJarsUtil.requireJs(routes.Assets.versioned("javascripts/index.js")))
+   
   <style>
     /* Remove the navbar's default rounded borders and increase the bottom margin */ 
     .navbar {
@@ -51,7 +52,7 @@
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
-        <li class="active"><a href="@routes.Application.testDatabase()">Outdoors</a></li>
+        <li><a href="@routes.Application.getItems()">Outdoors</a></li>
         <li><a href="#">Electronics</a></li>
         <li><a href="#">Clothes</a></li>
         <li><a href="#">Food</a></li>
@@ -60,6 +61,7 @@
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li><a href='@routes.Application.login()'><span class="glyphicon glyphicon-user"></span>Log In</a></li>
+        <li><a href='@routes.Application.profile()'><span class="glyphicon glyphicon-user"></span>Profile</a></li>
       </ul>
     </div>
   </div>
@@ -69,23 +71,23 @@
   <div class="row">
     <div class="col-sm-4">
       <div class="panel panel-primary">
-        <div class="panel-heading">BLACK FRIDAY DEAL</div>
-        <div class="panel-body"><img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image"></div>
-        <div class="panel-footer">Buy 50 mobiles and get a gift card</div>
+        <div class="panel-heading">Shoes</div>
+        <div class="panel-body">Blue tennis shoes with white accents</div>
+        <div class="panel-footer">$29.99 - Buy Now</div>
       </div>
     </div>
     <div class="col-sm-4"> 
-      <div class="panel panel-danger">
-        <div class="panel-heading">BLACK FRIDAY DEAL</div>
-        <div class="panel-body"><img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image"></div>
-        <div class="panel-footer">Buy 50 mobiles and get a gift card</div>
+      <div class="panel panel-primary">
+        <div class="panel-heading">Tie</div>
+        <div class="panel-body">Red and black striped tie with small Georgia bulldog pattern</div>
+        <div class="panel-footer">$49.99 - Buy Now</div>
       </div>
     </div>
     <div class="col-sm-4"> 
-      <div class="panel panel-success">
-        <div class="panel-heading">BLACK FRIDAY DEAL</div>
-        <div class="panel-body"><img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image"></div>
-        <div class="panel-footer">Buy 50 mobiles and get a gift card</div>
+      <div class="panel panel-primary">
+        <div class="panel-heading">Headphones</div>
+        <div class="panel-body">Soundproof headphones, come in black and gray</div>
+        <div class="panel-footer">$99.99 - Buy Now</div>
       </div>
     </div>
   </div>
@@ -95,35 +97,27 @@
   <div class="row">
     <div class="col-sm-4">
       <div class="panel panel-primary">
-        <div class="panel-heading">BLACK FRIDAY DEAL</div>
-        <div class="panel-body"><img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image"></div>
-        <div class="panel-footer">Buy 50 mobiles and get a gift card</div>
+        <div class="panel-heading">Bike</div>
+        <div class="panel-body">Red bike with 5 gears, hand brakes, mountain speeds</div>
+        <div class="panel-footer">$295.99 - Buy Now</div>
       </div>
     </div>
     <div class="col-sm-4"> 
       <div class="panel panel-primary">
-        <div class="panel-heading">BLACK FRIDAY DEAL</div>
-        <div class="panel-body"><img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image"></div>
-        <div class="panel-footer">Buy 50 mobiles and get a gift card</div>
+        <div class="panel-heading">Eno</div>
+        <div class="panel-body">Outdoor hammock appropriate for one or two person use</div>
+        <div class="panel-footer">$89.99 - Buy Now</div>
       </div>
     </div>
     <div class="col-sm-4"> 
       <div class="panel panel-primary">
-        <div class="panel-heading">BLACK FRIDAY DEAL</div>
-        <div class="panel-body"><img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image"></div>
-        <div class="panel-footer">Buy 50 mobiles and get a gift card</div>
+        <div class="panel-heading">Purse</div>
+        <div class="panel-body">Black purse with shoulder strap, silver studs</div>
+        <div class="panel-footer">$38.99 - Buy Now</div>
       </div>
     </div>
   </div>
 </div><br><br>
-
-<footer class="container-fluid text-center">
-  <p>Online Store Copyright</p>  
-  <form class="form-inline">Get deals:
-    <input type="email" class="form-control" size="50" placeholder="Email Address">
-    <button type="button" class="btn btn-danger">Sign Up</button>
-  </form>
-</footer>
 
 </body>
 </html>

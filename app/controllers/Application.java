@@ -7,6 +7,13 @@ import play.db.Database;
 import play.db.Databases;
 import java.sql.*;
 
+import views.html.*;
+
+import java.util.*;
+
+//scala> import scala.collection.JavaConverters;
+import scala.collection.JavaConverters;
+
 public class Application extends Controller {
     
     
@@ -21,6 +28,7 @@ public class Application extends Controller {
     
     @Inject views.html.index indexTemplate;
     @Inject views.html.login loginTemplate;
+    @Inject views.html.profile profileTemplate;
 
     public Result index() {
         return ok(indexTemplate.render());
@@ -30,8 +38,14 @@ public class Application extends Controller {
         return ok(loginTemplate.render());
     }
     
-    public Result testDatabase() throws Exception {
-        String sql = "select * from User";
+    public Result profile() {
+        return ok(profileTemplate.render());
+    }
+    
+    public Result getItems() throws Exception {
+        String sql = "select * from Item";
+        
+        ArrayList<Item> mainList = new ArrayList<>();
 
         Connection conn = DB.getConnection();
         ResultSet set; 
@@ -42,7 +56,16 @@ public class Application extends Controller {
                 stmt.execute(sql);
                 set = stmt.getResultSet();
                 while(set.next()) {
-                    System.out.println(set.getString("username"));
+                    int id = set.getInt("idItem");
+                    String name = set.getString("itemname");
+                    double price = set.getDouble("price");
+                    String description = set.getString("description");
+                    int rating = set.getInt("rating");
+                    int categoryid = set.getInt("categoryid");
+                    
+                    Item newItem = new Item(id, name, price, description, rating, categoryid);
+                    mainList.add(newItem);
+                    
                 }
                
             } finally {
@@ -52,6 +75,13 @@ public class Application extends Controller {
             conn.close();
         }
         
+        System.out.println(mainList.size());
+        
+        for(int i = 0; i < mainList.size(); i++) {
+            System.out.println(mainList.get(i).idItem + " " + mainList.get(i).itemname + " " +
+                              mainList.get(i).price + " " + mainList.get(i).description + " " + 
+                              mainList.get(i).rating + " " + mainList.get(i).categoryid);
+        }
         return ok(loginTemplate.render());
     }
 

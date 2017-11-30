@@ -7,8 +7,9 @@ GET         /                       controllers.Application.index()
 
 # Other pages
 GET         /login                  controllers.Application.login()
+GET         /profile                controllers.Application.profile()
 
-GET         /testDatabase           controllers.Application.testDatabase()
+GET         /getItems               controllers.Application.getItems()
 
 # Versioned Assets
 GET         /vassets/*file          controllers.Assets.versioned(path="/public", file: Asset)
