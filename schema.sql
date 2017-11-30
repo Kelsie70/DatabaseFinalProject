@@ -1,84 +1,69 @@
 CREATE DATABASE DatabaseFinal /*!40100 DEFAULT CHARACTER SET latin1 */;
 
-CREATE TABLE `User` (
-  `userID` int(11) NOT NULL,
-  `username` varchar(45) NOT NULL,
-  `password` varchar(45) NOT NULL,
-  PRIMARY KEY (`userID`),
-  UNIQUE KEY username_UNIQUE (`username`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
 CREATE TABLE `Profile` (
-  `username` varchar(45) NOT NULL,
-  `firstName` varchar(45) DEFAULT NULL,
-  `lastName` varchar(45) DEFAULT NULL,
-  `address` varchar(45) DEFAULT NULL,
-  `city` varchar(45) DEFAULT NULL,
-  `state` varchar(45) DEFAULT NULL,
-  `zipCode` int(11) DEFAULT NULL,
-  `email` varchar(45) NOT NULL,
-  `balance` varchar(45) NOT NULL,
-  PRIMARY KEY (`username`)
+  `user_id` integer NOT NULL,
+  `username` varchar(255) NOT NULL,
+  `password` varchar(255) NOT NULL,
+  `first_name` varchar(255) DEFAULT NULL,
+  `last_name` varchar(255) DEFAULT NULL,
+  `address` varchar(255) DEFAULT NULL,
+  `city` varchar(255) DEFAULT NULL,
+  `state` varchar(255) DEFAULT NULL,
+  `zip_code` integer DEFAULT NULL,
+  `email` varchar(255) NOT NULL,
+  `balance` varchar(255) NOT NULL,
+  PRIMARY KEY (`user_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 CREATE TABLE `Category` (
-  `categoryID` int(11) NOT NULL,
-  `categoryName` varchar(45) DEFAULT NULL,
-  PRIMARY KEY (`categoryID`)
+  `category_id` integer NOT NULL,
+  `categoryName` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`category_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 CREATE TABLE `Item` (
-  `itemID` int(11) NOT NULL,
-  `itemName` varchar(45) NOT NULL,
+  `item_id` integer NOT NULL,
+  `item_name` varchar(255) NOT NULL,
+  `description` varchar(255) NOT NULL,
   `price` double DEFAULT NULL,
-  `categoryID` int(11) DEFAULT NULL,
-  PRIMARY KEY (`itemID`),
-  FOREIGN KEY (`categoryID`) REFERENCES `Category`(`categoryID`)
+  `category_id` integer DEFAULT NULL,
+  PRIMARY KEY (`item_id`),
+  FOREIGN KEY (`category_id`) REFERENCES `Category`(`category_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 CREATE TABLE `Buyer` (
-  `buyerID` int(11) NOT NULL,
-  `userID` int(11) NOT NULL,
-  PRIMARY KEY (`buyerID`),
-  FOREIGN KEY (`userID`) REFERENCES `User`(`userID`)
+  `buyer_id` integer NOT NULL,
+  `user_id` integer NOT NULL,
+  PRIMARY KEY (`buyer_id`),
+  FOREIGN KEY (`user_id`) REFERENCES `Profile`(`user_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 CREATE TABLE `Seller` (
-  `sellerID` int(11) NOT NULL,
-  `userID` int(11) NOT NULL,
-  `ratingValue` int(11) DEFAULT NULL,
-  PRIMARY KEY (`sellerID`),
-  FOREIGN KEY (`userID`) REFERENCES `User`(`userID`)
+  `seller_id` integer NOT NULL,
+  `user_id` integer NOT NULL,
+  PRIMARY KEY (`seller_id`),
+  FOREIGN KEY (`user_id`) REFERENCES `Profile`(`user_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 CREATE TABLE `Inventory` (
-  `itemID` int(11) NOT NULL,
-  `sellerID` int(11) NOT NULL,
-  `numberInStock` int(11) DEFAULT NULL,
-  `itemStatus` varchar(45) DEFAULT NULL,
-  PRIMARY KEY (`itemID`,`sellerID`),
-  FOREIGN KEY (`itemID`) REFERENCES `Item`(`itemID`),
-  FOREIGN KEY (`sellerID`) REFERENCES `Seller`(`sellerID`)
+  `item_id` integer NOT NULL,
+  `seller_id` integer NOT NULL,
+  `number_in_stock` integer DEFAULT NULL,
+  `itemStatus` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`item_id`,`seller_id`),
+  FOREIGN KEY (`item_id`) REFERENCES `Item`(`item_id`),
+  FOREIGN KEY (`seller_id`) REFERENCES `Seller`(`seller_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 CREATE TABLE `Purchase` (
-  `purchaseID` int(11) NOT NULL,
-  `buyerID` int(11) NOT NULL,
-  `sellerID` int(11) NOT NULL,
-  `itemID` int(11) DEFAULT NULL,
-  PRIMARY KEY (`purchaseID`),
-  FOREIGN KEY (`itemID`) REFERENCES `Item`(`itemID`),
-  FOREIGN KEY (`sellerID`) REFERENCES `Seller`(`sellerID`),
-  FOREIGN KEY (`buyerID`) REFERENCES `Buyer`(`buyerID`)
+  `purchase_id` integer NOT NULL,
+  `buyer_id` integer NOT NULL,
+  `seller_id` integer NOT NULL,
+  `item_id` integer DEFAULT NULL,
+  PRIMARY KEY (`purchase_id`),
+  FOREIGN KEY (`item_id`) REFERENCES `Item`(`item_id`),
+  FOREIGN KEY (`seller_id`) REFERENCES `Seller`(`seller_id`),
+  FOREIGN KEY (`buyer_id`) REFERENCES `Buyer`(`buyer_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
-CREATE TABLE `Rating` (
-  `ratingID` int(11) NOT NULL,
-  `buyerID` int(11) NOT NULL,
-  `sellerID` int(11) NOT NULL,
-  `value` int(11) NOT NULL,
-  PRIMARY KEY (`ratingID`),
-  FOREIGN KEY (`sellerID`) REFERENCES `Seller`(`sellerID`),
-  FOREIGN KEY (`buyerID`) REFERENCES `Buyer`(`buyerID`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
