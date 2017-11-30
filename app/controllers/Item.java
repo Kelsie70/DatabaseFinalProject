@@ -1,28 +1,38 @@
-package controllers;
+package models;
 
 import java.util.*;
+import javax.persistence.*;
 
-public class Item {
+import io.ebean.*;
+import play.data.format.*;
+import play.data.validation.*;
 
-    public int idItem;
+@Entity
+public class Item extends Model {
 
-    public String itemname;
+	@Id
+    public Integer itemId;
+
+    public String itemName;
+	
+	public String description;
     
-    public double price;
+    public Double price;
     
-    public String description;
-    
-    public int rating;
-    
-    public int categoryid;
-    
-    public Item(int idItem, String itemname, double price, String description, int rating, int categoryid) {
-        this.idItem = idItem;
-        this.itemname = itemname;
-        this.price = price;
-        this.description = description;
-        this.rating = rating;
-        this.categoryid = categoryid;
-    }
+    public Integer categoryId;
+	
+	public static Finder<Integer,Item> find = new Finder(Item.class);
+	
+	public static List<Item> all() {
+		return find.all();
+	}
+
+	public static void create(Item item) {
+	  item.save();
+	}
+
+	public static void delete(Integer id) {
+	  find.ref(id).delete();
+	}
   
 }
