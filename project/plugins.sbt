@@ -12,6 +12,8 @@ addSbtPlugin("com.typesafe.sbt" % "sbt-coffeescript" % "1.0.1")
 
 addSbtPlugin("com.typesafe.sbteclipse" % "sbteclipse-plugin" % "5.2.4")
 
+addSbtPlugin("com.typesafe.sbt" % "sbt-play-ebean" % "4.0.1")
+
 //If Windows to debug:
 //set "JAVA_OPTS=-Xdebug -Xrunjdwp:transport=dt_socket,server=y,suspend=n,address=9999"
 //sbt run
