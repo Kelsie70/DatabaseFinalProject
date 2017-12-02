@@ -4,6 +4,9 @@
 
 # Home page
 GET         /                       controllers.Application.index()
+GET     	/items                 	@controllers.Application.items()
+POST    	/newItem                @controllers.Application.newItem()
+POST    	/deleteItem/:id/delete  @controllers.Application.deleteItem(id: Integer)
 
 # Other pages
 GET         /login                  controllers.Application.login()
