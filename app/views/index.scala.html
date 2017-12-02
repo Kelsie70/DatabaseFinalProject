@@ -1,5 +1,7 @@
 @this(webJarsUtil: org.webjars.play.WebJarsUtil)
-@(items: List[Item]) 
+@(items: List[Item], itemForm: play.data.Form[Item]) 
+@import helper._
+
 
 
 
@@ -79,10 +81,32 @@
         @for(item <- items) {
             <li>
                 @item.itemName
+				
+				@form(action = helper.CSRF(routes.Application.deleteItem(item.itemId))) {
+                    <input type="submit" value="Delete">
+                }
+
             </li>
         }
     </ul>
+	
+	<h2>Add a new task</h2>
+    
+    @form(action = helper.CSRF(routes.Application.newItem())) {
+        
+        @inputText(itemForm("itemId")) 
+		@inputText(itemForm("itemName")) 
+		@inputText(itemForm("description")) 
+		@inputText(itemForm("price")) 
+		@inputText(itemForm("categoryId")) 
+        
+        <input type="submit" value="Create">
+        
+    }
+	
 </div>
+
+
     
 
 <div class="container">    
