@@ -1,4 +1,4 @@
-CREATE DATABASE databasefinal /*!40100 DEFAULT CHARACTER SET latin1 */;
+CREATE DATABASE DatabaseFinal /*!40100 DEFAULT CHARACTER SET latin1 */;
 
 CREATE TABLE `Profile` (
   `user_id` integer NOT NULL AUTO_INCREMENT,
