@@ -79,7 +79,7 @@ public class Application extends Controller {
 
 	public Result itemAccessories() {
 	  //return ok(indexTemplate.render(Item.all()));
-	  return ok(outdoorsTemplate.render(Item.categoryList(5), itemForm));
+	  return ok(accessoriesTemplate.render(Item.categoryList(5), itemForm));
 	}
 	
 	
