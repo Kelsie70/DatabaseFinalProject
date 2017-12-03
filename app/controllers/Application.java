@@ -52,6 +52,31 @@ public class Application extends Controller {
     public Result profile() {
         return ok(profileTemplate.render());
     }
+	    public Result itemOutdoors() {
+	  //return ok(indexTemplate.render(Item.all()));
+	  return ok(outdoorsTemplate.render(Item.categoryList(1), itemForm));
+	}
+
+	public Result itemElectronics() {
+	  //return ok(indexTemplate.render(Item.all()));
+	  return ok(electronicsTemplate.render(Item.categoryList(2), itemForm));
+	}
+
+	public Result itemClothes() {
+	  //return ok(indexTemplate.render(Item.all()));
+	  return ok(clothesTemplate.render(Item.categoryList(3), itemForm));
+	}
+
+	public Result itemFood() {
+	  //return ok(indexTemplate.render(Item.all()));
+	  return ok(foodTemplate.render(Item.categoryList(4), itemForm));
+	}
+
+	public Result itemAccessories() {
+	  //return ok(indexTemplate.render(Item.all()));
+	  return ok(outdoorsTemplate.render(Item.categoryList(5), itemForm));
+	}
+	
 	
 	public Result items() {
 	  //return ok(indexTemplate.render(Item.all()));
