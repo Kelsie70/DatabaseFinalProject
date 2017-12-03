@@ -11,9 +11,10 @@ CREATE TABLE `Profile` (
   `state` varchar(255) DEFAULT NULL,
   `zip_code` integer DEFAULT NULL,
   `email` varchar(255) NOT NULL,
-  `balance` varchar(255) NOT NULL,
+  `balance` double NOT NULL,
   PRIMARY KEY (`user_id`),
-  UNIQUE KEY (`email`)
+  UNIQUE KEY (`email`),
+  UNIQUE KEY (`username`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 CREATE TABLE `Category` (
@@ -47,10 +48,11 @@ CREATE TABLE `Seller` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 CREATE TABLE `Inventory` (
+  `inventory_id` integer NOT NULL AUTO_INCREMENT,
   `item_id` integer NOT NULL,
   `seller_id` integer NOT NULL,
-  `number_in_stock` integer DEFAULT NULL,
-  PRIMARY KEY (`item_id`,`seller_id`),
+  `quantity` integer DEFAULT NULL,
+  PRIMARY KEY (`inventory_id`),
   FOREIGN KEY (`item_id`) REFERENCES `Item`(`item_id`),
   FOREIGN KEY (`seller_id`) REFERENCES `Seller`(`seller_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -60,7 +62,6 @@ CREATE TABLE `Purchase` (
   `buyer_id` integer NOT NULL,
   `seller_id` integer NOT NULL,
   `item_id` integer DEFAULT NULL,
-  `time` integer NOT NULL,
   PRIMARY KEY (`purchase_id`),
   FOREIGN KEY (`item_id`) REFERENCES `Item`(`item_id`),
   FOREIGN KEY (`seller_id`) REFERENCES `Seller`(`seller_id`),
