@@ -1,30 +1,30 @@
 /* -------- inserts for profile -------- */
 
-INSERT INTO `databasefinal`.`Profile`(`username`,`password``first_name`,`last_name`,
+INSERT INTO `databasefinal`.`Profile`(`username`,`password`, `first_name`,`last_name`,
 `address`,`city`,`state`,`zipcode`,`email`,`balance`)
 VALUES
 ("kelsie123", "Kelsie", "Belan", "123 Oak St.", "Athens", "Georgia", "30602",
 	"kelsie70@gmail.com", 376.54);
 
-INSERT INTO `databasefinal`.`Profile`(`username`,`password``first_name`,`last_name`,
+INSERT INTO `databasefinal`.`Profile`(`username`,`password`, `first_name`,`last_name`,
 `address`,`city`,`state`,`zipcode`,`email`,`balance`)
 VALUES
 ("doggo321", "Max", "Dog", "43 Bone Dr.", "Athens", "Georgia", "30602",
 	"doggo@gmail.com", 38.33);
     
-INSERT INTO `databasefinal`.`Profile`(`username`,`password``first_name`,`last_name`,
+INSERT INTO `databasefinal`.`Profile`(`username`,`password`, `first_name`,`last_name`,
 `address`,`city`,`state`,`zipcode`,`email`,`balance`)
 VALUES
 ("coolperson", "Lloyd", "McGee", "88 Waterfront Circle", "New York", "New York", "12343",
 	"iamcool@hotmail.com", 4.65);
     
-INSERT INTO `databasefinal`.`Profile`(`username`,`password``first_name`,`last_name`,
+INSERT INTO `databasefinal`.`Profile`(`username`,`password`, `first_name`,`last_name`,
 `address`,`city`,`state`,`zipcode`,`email`,`balance`)
 VALUES
 ("bobthedude", "Bob", "Sanders", "66 Tomato Lane", "Watkinsville", "Georgia", "30678",
 	"bob@gmail.com", 7888.33);
     
-INSERT INTO `databasefinal`.`Profile`(`username`,`password``first_name`,`last_name`,
+INSERT INTO `databasefinal`.`Profile`(`username`,`password`, `first_name`,`last_name`,
 `address`,`city`,`state`,`zipcode`,`email`,`balance`)
 VALUES
 ("l33thacker", "Dave", "Leno", "56 Town Rd.", "Orlando", "Florida", "43322",
