@@ -1,34 +1,60 @@
 /* -------- inserts for profile -------- */
 
 INSERT INTO `databasefinal`.`Profile`(`username`,`password`, `first_name`,`last_name`,
-`address`,`city`,`state`,`zipcode`,`email`,`balance`)
+`address`,`city`,`state`,`zip_code`,`email`,`balance`)
 VALUES
-("kelsie123", "Kelsie", "Belan", "123 Oak St.", "Athens", "Georgia", "30602",
+("kelsie123", "123Dawgs", "Kelsie", "Belan", "123 Oak St.", "Athens", "Georgia", 30602,
 	"kelsie70@gmail.com", 376.54);
 
 INSERT INTO `databasefinal`.`Profile`(`username`,`password`, `first_name`,`last_name`,
-`address`,`city`,`state`,`zipcode`,`email`,`balance`)
+`address`,`city`,`state`,`zip_code`,`email`,`balance`)
 VALUES
-("doggo321", "Max", "Dog", "43 Bone Dr.", "Athens", "Georgia", "30602",
+("doggo321", "123Dawgs", "Max", "Dog", "43 Bone Dr.", "Athens", "Georgia", 30602,
 	"doggo@gmail.com", 38.33);
     
 INSERT INTO `databasefinal`.`Profile`(`username`,`password`, `first_name`,`last_name`,
-`address`,`city`,`state`,`zipcode`,`email`,`balance`)
+`address`,`city`,`state`,`zip_code`,`email`,`balance`)
 VALUES
-("coolperson", "Lloyd", "McGee", "88 Waterfront Circle", "New York", "New York", "12343",
+("coolperson", "123Dawgs", "Lloyd", "McGee", "88 Waterfront Circle", "New York", "New York", 12343,
 	"iamcool@hotmail.com", 4.65);
     
 INSERT INTO `databasefinal`.`Profile`(`username`,`password`, `first_name`,`last_name`,
-`address`,`city`,`state`,`zipcode`,`email`,`balance`)
+`address`,`city`,`state`,`zip_code`,`email`,`balance`)
 VALUES
-("bobthedude", "Bob", "Sanders", "66 Tomato Lane", "Watkinsville", "Georgia", "30678",
+("bobthedude", "123Dawgs", "Bob", "Sanders", "66 Tomato Lane", "Watkinsville", "Georgia", 30678,
 	"bob@gmail.com", 7888.33);
     
 INSERT INTO `databasefinal`.`Profile`(`username`,`password`, `first_name`,`last_name`,
-`address`,`city`,`state`,`zipcode`,`email`,`balance`)
+`address`,`city`,`state`,`zip_code`,`email`,`balance`)
 VALUES
-("l33thacker", "Dave", "Leno", "56 Town Rd.", "Orlando", "Florida", "43322",
+("l33thacker", "123Dawgs", "Dave", "Leno", "56 Town Rd.", "Orlando", "Florida", 43322,
 	"discreet@yahoo.com", 234.56);
+
+/* -------- inserts for category -------- */
+
+INSERT INTO `databasefinal`.`Category`(`category_id`,`categoryName`)
+VALUES
+(1, "outdoors");
+
+INSERT INTO `databasefinal`.`Category`(`category_id`,`categoryName`)
+VALUES
+(2, "electronics");
+
+INSERT INTO `databasefinal`.`Category`(`category_id`,`categoryName`)
+VALUES
+(3, "clothes");
+
+INSERT INTO `databasefinal`.`Category`(`category_id`,`categoryName`)
+VALUES
+(4, "food");
+
+INSERT INTO `databasefinal`.`Category`(`category_id`,`categoryName`)
+VALUES
+(5, "accessories");
+
+INSERT INTO `databasefinal`.`Category`(`category_id`,`categoryName`)
+VALUES
+(6, "home");
 
 /* -------- inserts for item -------- */
 
@@ -67,127 +93,104 @@ INSERT INTO `databasefinal`.`Item`
 VALUES
 ("comforter", 79.99, "Bed comforter with floral patterns", 6);
 
-/* -------- inserts for inventory -------- */
-
-INSERT INTO `databasefinal`.`Inventory`(`item_id`, `seller_id`,`quantity`)
-VALUES
-(5, "kelsie123", "coolperson", 10);
-
-INSERT INTO `databasefinal`.`Inventory`(`item_id`, `seller_id`,`quantity`)
-VALUES
-(4, "kelsie123", "coolperson", 10);
-
-INSERT INTO `databasefinal`.`Inventory`(`item_id`, `seller_id`,`quantity`)
-VALUES
-(3, "doggo321", "bobthedude", 10);
-
-INSERT INTO `databasefinal`.`Inventory`(`item_id`, `seller_id`,`quantity`)
-VALUES
-(6, "bobthedude", "bobthedude", 10);
-
-INSERT INTO `databasefinal`.`Inventory`(`item_id`, `seller_id`,`quantity`)
-VALUES
-(4, "l33thacker", "bobthedude", 15);
-
-INSERT INTO `databasefinal`.`Inventory`(`item_id`, `seller_id`,`quantity`)
-VALUES
-(2, "coolperson", "133thacker", 10);
-
-INSERT INTO `databasefinal`.`Inventory`(`item_id`, `seller_id`,`quantity`)
-VALUES
-(2, "kelsie123", "133thacker", 15);
-
-/* -------- inserts for purchase -------- */
-
-INSERT INTO `databasefinal`.`Purchase`(`buyer_id`,`seller_id`, `item_id`)
-VALUES
-("kelsie123", "coolperson", 6);
-
-INSERT INTO `databasefinal`.`Purchase`(`buyer_id`,`seller_id`,`item_id`)
-VALUES
-(2, "coolperson", "bobthedude", 4);
-
-INSERT INTO `databasefinal`.`Purchase`(`buyer_id`,`seller_id`,`item_id`)
-VALUES
-(3, "kelsie123", "coolperson", 6);
-
-INSERT INTO `databasefinal`.`Purchase`(`buyer_id`,`seller_id`,`item_id`)
-VALUES
-(4, "bobthedude", "l33thacker", 5);
-
-INSERT INTO `databasefinal`.`Purchase`(`buyer_id`,`seller_id`,`item_id`)
-VALUES
-(5, "l33thacker", "doggo321", 3);
-
-/* -------- inserts for category -------- */
-
-INSERT INTO `databasefinal`.`Category`(`category_id`,`categoryName`)
-VALUES
-(1, "outdoors");
-
-INSERT INTO `databasefinal`.`Category`(`category_id`,`categoryName`)
-VALUES
-(2, "electronics");
-
-INSERT INTO `databasefinal`.`Category`(`category_id`,`categoryName`)
-VALUES
-(3, "clothes");
-
-INSERT INTO `databasefinal`.`Category`(`category_id`,`categoryName`)
-VALUES
-(4, "food");
-
-INSERT INTO `databasefinal`.`Category`(`category_id`,`categoryName`)
-VALUES
-(5, "accessories");
-
-INSERT INTO `databasefinal`.`Category`(`category_id`,`categoryName`)
-VALUES
-(6, "home");
-
 /* -------- inserts for Seller -------- */
 
 INSERT INTO `databasefinal`.`Seller`(`user_id`)
 VALUES
-("kelsiebelan123");
+(1);
 
 INSERT INTO `databasefinal`.`Seller`(`user_id`)
 VALUES
-("coolperson");
+(2);
 
 INSERT INTO `databasefinal`.`Seller`(`user_id`)
 VALUES
-("bobthedude");
+(3);
 
 INSERT INTO `databasefinal`.`Seller`(`user_id`)
 VALUES
-("l33thacker");
+(4);
 
 INSERT INTO `databasefinal`.`Seller`(`user_id`)
 VALUES
-("doggo321");
+(5);
 
 /* -------- inserts for Buyer -------- */
 
 INSERT INTO `databasefinal`.`Buyer`(`user_id`)
 VALUES
-("coolperson");
+(1);
 
 INSERT INTO `databasefinal`.`Buyer`(`user_id`)
 VALUES
-("coolperson")
+(2);
 
 INSERT INTO `databasefinal`.`Buyer`(`user_id`)
 VALUES
-("bobthedude");
+(3);
 
 INSERT INTO `databasefinal`.`Buyer`(`user_id`)
 VALUES
-("l33thacker");
+(4);
 
 INSERT INTO `databasefinal`.`Buyer`(`user_id`)
 VALUES
-("doggo321");
+(5);
+
+/* -------- inserts for inventory -------- */
+
+INSERT INTO `databasefinal`.`Inventory`(`item_id`, `seller_id`,`quantity`)
+VALUES
+(5, 2, 10);
+
+INSERT INTO `databasefinal`.`Inventory`(`item_id`, `seller_id`,`quantity`)
+VALUES
+(4, 2, 10);
+
+INSERT INTO `databasefinal`.`Inventory`(`item_id`, `seller_id`,`quantity`)
+VALUES
+(3, 4, 10);
+
+INSERT INTO `databasefinal`.`Inventory`(`item_id`, `seller_id`,`quantity`)
+VALUES
+(6, 3, 10);
+
+INSERT INTO `databasefinal`.`Inventory`(`item_id`, `seller_id`,`quantity`)
+VALUES
+(4, 5,  15);
+
+INSERT INTO `databasefinal`.`Inventory`(`item_id`, `seller_id`,`quantity`)
+VALUES
+(2, 1, 10);
+
+INSERT INTO `databasefinal`.`Inventory`(`item_id`, `seller_id`,`quantity`)
+VALUES
+(2, 3, 15);
+
+/* -------- inserts for purchase -------- */
+
+INSERT INTO `databasefinal`.`Purchase`(`buyer_id`,`seller_id`, `item_id`)
+VALUES
+(3, 4, 5);
+
+INSERT INTO `databasefinal`.`Purchase`(`buyer_id`,`seller_id`,`item_id`)
+VALUES
+(4, 2, 6);
+
+INSERT INTO `databasefinal`.`Purchase`(`buyer_id`,`seller_id`,`item_id`)
+VALUES
+(4, 1, 7);
+
+INSERT INTO `databasefinal`.`Purchase`(`buyer_id`,`seller_id`,`item_id`)
+VALUES
+(4, 3, 3);
+
+INSERT INTO `databasefinal`.`Purchase`(`buyer_id`,`seller_id`,`item_id`)
+VALUES
+(2, 3, 3);
+
+
+
 
 
 
