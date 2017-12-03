@@ -12,6 +12,11 @@ POST    	/deleteItem/:id/delete  @controllers.Application.deleteItem(id: Integer
 GET         /login                  controllers.Application.login()
 POST        /login                  controllers.Application.authenticate()
 GET         /profile                controllers.Application.profile()
+GET         /outdoors               controllers.Application.itemOutdoors()
+GET         /food             		  controllers.Application.itemFood()
+GET         /clothes              	controllers.Application.itemClothes()
+GET         /Accessories            controllers.Application.itemAccessories()
+GET         /electronics            controllers.Application.itemElectronics()
 
 # Versioned Assets
 GET         /vassets/*file          controllers.Assets.versioned(path="/public", file: Asset)

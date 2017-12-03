@@ -34,5 +34,9 @@ public class Item extends Model {
 	public static void delete(Integer id) {
 	  find.ref(id).delete();
 	}
+	
+	public static List<Item> categoryList(Integer id) {
+		return find.query().where().eq("category_id", id).findList();
+  	}
   
 }
