@@ -10,6 +10,7 @@ POST    	/deleteItem/:id/delete  @controllers.Application.deleteItem(id: Integer
 
 # Other pages
 GET         /login                  controllers.Application.login()
+POST        /login                  controllers.Application.authenticate()
 GET         /profile                controllers.Application.profile()
 
 # Versioned Assets
