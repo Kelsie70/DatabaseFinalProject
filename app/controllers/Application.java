@@ -33,6 +33,11 @@ public class Application extends Controller {
     @Inject views.html.index indexTemplate;
     @Inject views.html.login loginTemplate;
     @Inject views.html.profile profileTemplate;
+    @Inject views.html.outdoors outdoorsTemplate;
+    @Inject views.html.electronics electronicsTemplate;
+    @Inject views.html.clothes clothesTemplate;
+    @Inject views.html.food foodTemplate;
+    @Inject views.html.accessories accessoriesTemplate;
 	
 	@Inject
 	public Application(final FormFactory formFactory) {
