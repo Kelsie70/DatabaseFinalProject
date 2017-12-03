@@ -75,92 +75,37 @@
   </div>
 </nav>
 
-<div class="hi">     
-    <ul>
-		<p>@items.size()</p>
-        @for(item <- items) {
-            <li>
-                @item.itemName
-				
-				@form(action = helper.CSRF(routes.Application.deleteItem(item.itemId))) {
-                    <input type="submit" value="Delete">
-                }
-
-            </li>
-        }
-    </ul>
-	
-	<h2>Add a new task</h2>
-    
-    @form(action = helper.CSRF(routes.Application.newItem())) {
-        
-        @inputText(itemForm("itemId")) 
-		@inputText(itemForm("itemName")) 
-		@inputText(itemForm("description")) 
-		@inputText(itemForm("price")) 
-		@inputText(itemForm("categoryId")) 
-        
-        <input type="submit" value="Create">
-        
-    }
-	
-</div>
-
-
-    
-
 <div class="container">    
   <div class="row">
+    @for(item <- items) {
     <div class="col-sm-4">
       <div class="panel panel-primary">
-        <div class="panel-heading">Shoes</div>
-        <div class="panel-body">Blue tennis shoes with white accents</div>
-        <div class="panel-footer">$29.99 - Buy Now</div>
+        <div class="panel-heading">@item.itemName</div>
+        <div class="panel-body">@item.description</div>
+        <div class="panel-footer">$@item.price @form(action = helper.CSRF(routes.Application.deleteItem(item.itemId))) {
+                    <input type="submit" value="Purchase">
+                }</div>
       </div>
     </div>
-    <div class="col-sm-4"> 
-      <div class="panel panel-primary">
-        <div class="panel-heading">Tie</div>
-        <div class="panel-body">Red and black striped tie with small Georgia bulldog pattern</div>
-        <div class="panel-footer">$49.99 - Buy Now</div>
-      </div>
-    </div>
-    <div class="col-sm-4"> 
-      <div class="panel panel-primary">
-        <div class="panel-heading">Headphones</div>
-        <div class="panel-body">Soundproof headphones, come in black and gray</div>
-        <div class="panel-footer">$99.99 - Buy Now</div>
-      </div>
-    </div>
+    }
   </div>
 </div><br>
 
-<div class="container">    
-  <div class="row">
-    <div class="col-sm-4">
-      <div class="panel panel-primary">
-        <div class="panel-heading">Bike</div>
-        <div class="panel-body">Red bike with 5 gears, hand brakes, mountain speeds</div>
-        <div class="panel-footer">$295.99 - Buy Now</div>
-      </div>
-    </div>
-    <div class="col-sm-4"> 
-      <div class="panel panel-primary">
-        <div class="panel-heading">Eno</div>
-        <div class="panel-body">Outdoor hammock appropriate for one or two person use</div>
-        <div class="panel-footer">$89.99 - Buy Now</div>
-      </div>
-    </div>
-    <div class="col-sm-4"> 
-      <div class="panel panel-primary">
-        <div class="panel-heading">Purse</div>
-        <div class="panel-body">Black purse with shoulder strap, silver studs</div>
-        <div class="panel-footer">$38.99 - Buy Now</div>
-      </div>
-    </div>
-  </div>
+<div class="hi">     
+  
+  <h2>Add a new item</h2>
+    
+    @form(action = helper.CSRF(routes.Application.newItem())) {
+        
+      @inputText(itemForm("itemName")) 
+      @inputText(itemForm("description")) 
+      @inputText(itemForm("price")) 
+      @inputText(itemForm("categoryId")) 
+        
+    <input type="submit" value="Add Item">
+    }
+  
 </div><br><br>
 
 </body>
 </html>
-
