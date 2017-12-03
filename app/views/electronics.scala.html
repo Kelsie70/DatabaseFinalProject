@@ -1,0 +1,113 @@
+@this(webJarsUtil: org.webjars.play.WebJarsUtil)
+@(items: List[Item], itemForm: play.data.Form[Item]) 
+@import helper._
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  @Html(webJarsUtil.css("bootstrap.min.css"))
+<link rel="stylesheet" media="screen" href="@routes.Assets.versioned("stylesheets/index.min.css")">
+<link rel="shortcut icon" type="image/png" href="@routes.Assets.versioned("images/favicon.png")">
+
+@Html(webJarsUtil.requireJs(routes.Assets.versioned("javascripts/index.js")))
+
+
+   
+  <style>
+    /* Remove the navbar's default rounded borders and increase the bottom margin */ 
+    .navbar {
+      margin-bottom: 50px;
+      border-radius: 0;
+    }
+    
+    /* Remove the jumbotron's default bottom margin */ 
+     .jumbotron {
+      margin-bottom: 0;
+    }
+   
+    /* Add a gray background color and some padding to the footer */
+    footer {
+      background-color: #f2f2f2;
+      padding: 25px;
+    }
+  </style>
+</head>
+<body>
+
+<div class="jumbotron">
+  <div class="container text-center">
+    <h1>Online Store</h1>      
+  </div>
+</div>
+
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+      <a class="navbar-brand" href="@routes.Application.index()">Online Store</a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+        <li><a href="@routes.Application.itemOutdoors()">Outdoors</a></li>
+        <li><a href="@routes.Application.itemElectronics()">Electronics</a></li>
+        <li><a href="@routes.Application.itemClothes()">Clothes</a></li>
+        <li><a href="@routes.Application.itemFood()">Food</a></li>
+        <li><a href="@routes.Application.itemAccessories()">Accessories</a></li>
+        <li><a href="#">Home</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href='@routes.Application.login()'><span class="glyphicon glyphicon-user"></span>Log In</a></li>
+        <li><a href='@routes.Application.profile()'><span class="glyphicon glyphicon-user"></span>Profile</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="container">
+    <h3 style="text-align: center;">Electronics Item</h3>   
+    <br> 
+  <div class="row">
+    @for(item <- items) {
+    <div class="col-sm-4">
+      <div class="panel panel-primary">
+        <div class="panel-heading">@item.itemName</div>
+        <div class="panel-body">@item.description</div>
+        <div class="panel-footer">$@item.price @form(action = helper.CSRF(routes.Application.deleteItem(item.itemId))) {
+                    <input type="submit" value="Purchase">
+                }</div>
+      </div>
+    </div>
+    }
+  </div>
+</div><br>
+
+<div class="hi">     
+  
+  <h2>Add a new item</h2>
+    
+    @form(action = helper.CSRF(routes.Application.newItem())) {
+        
+      @inputText(itemForm("itemName")) 
+      @inputText(itemForm("description")) 
+      @inputText(itemForm("price")) 
+      @inputText(itemForm("categoryId")) 
+        
+    <input type="submit" value="Add Item">
+    }
+  
+</div><br><br>
+
+</body>
+</html>
