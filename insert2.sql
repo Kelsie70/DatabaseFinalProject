@@ -86,7 +86,7 @@ VALUES
 INSERT INTO `databasefinal`.`Item`
 (`item_name`,`price`,`description`,`category_id`)
 VALUES
-(6, "purse", 38.99, "black purse with shoulder strap, silver studs", 5);
+("purse", 38.99, "black purse with shoulder strap, silver studs", 5);
 
 INSERT INTO `databasefinal`.`Item`
 (`item_name`,`price`,`description`,`category_id`)
