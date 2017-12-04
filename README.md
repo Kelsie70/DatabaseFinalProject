@@ -1,8 +1,10 @@
-Play Framework + WebJars
-========================
+Online Store
 
-A template for getting started with Play Framework and WebJars.
+Using Play Framework
 
-[Start hacking on the code in Activator](http://typesafe.com/activator/template/webjars-sample-play2)
+TO RUN:
 
-[![Deploy Instantly on Heroku](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
+- Download project
+- Execute schema.sql and insert.sql files on DatabaseFinal schema
+- Under parent directory, run using sbt run
+- After server starts, go to link localhost:9000/ to run
